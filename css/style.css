@@ -1,0 +1,1332 @@
+/* ----------------------
+-------------------------
+
+CSS TABLE OF CONTENTS
+
+# GLOBAL STYLES
+    # GLOBAL VARIABLES
+    # GLOBAL RESET
+    # GLOBAL COLORS
+    # GLOBAL TYPOGRAPHY
+    # GLOBAL MEDIA
+    # GLOBAL HELPERS
+
+# LAYOUT
+    # MEDIA QUERIES / BREAKPOINTS (RESPONSIVE TYPOGRAPHY)
+    # CONTAINER
+    # GRID
+
+# SITE STRUCTURE
+    # HEADER
+        # LOGO
+        # SITE NAV
+            # TOGGLE MENU
+                # NAVICON / HAMBURGER
+        # SITE-HEADER-ON-TOP-OF-HERO
+    # MAIN
+        # SECTIONS
+            # HERO
+    # FOOTER
+
+# UI COMPONENTS
+    # BUTTONS
+
+# ANIMATION
+    # SMOOTH SCROLLING
+
+# CUSTOM STYLING
+
+-------------------------
+---------------------- */
+
+/* ----------------------------------------------- */
+/* GLOBAL STYLES  */
+/* ----------------------------------------------- */
+
+/* GLOBAL VARIABLES
+ * Definitions for commonly used colors, typeface, sizing-units.
+/* -----------------------------------------------  */
+
+@font-face {
+    font-family: 'ppeditorial-old-thin';
+    src: url('../fonts/PPEditorialOld-Thin.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'ppeditorial-old-thinitalic';
+    src: url('../fonts/PPEditorialOld-ThinItalic.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+@font-face {
+    font-family: 'ppeditorial-old-regular';
+    src: url('../fonts/PPEditorialOld-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'ppeditorial-old-italic';
+    src: url('../fonts/PPEditorialOld-Italic.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'ppeditorial-old-bold';
+    src: url('../fonts/PPEditorialOld-Bold.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'ppeditorial-old-bolditalic';
+    src: url('../fonts/PPEditorialOld-BoldItalic.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* <weight>: Use a value from 200 to 800
+<uniquifier>: Use a unique and descriptive class name
+*/
+.karla-variable {
+  font-family: 'Karla', sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+} 
+
+:root {
+
+    /* DEFINE ALL COMMONLY USED COLORS HERE */
+
+    /* --color-body-bg: rgb(235, 235, 215); */
+    /* --color-body-bg: rgb(242 242 230 /	1); */
+    --color-body-bg: rgb(245, 245, 238);
+    --color-black: rgb(25 25 25 / .85);
+    --color-black50: rgba(108 70 70, .5);
+    --color-black60: rgb(25 25 25 / .6);
+    /* --color-white: rgb(235 235 235 / .9); */
+    /* --color-yellow: rgb(255 255 0/ 1); */
+    --color-yellow: rgb(255 238 0 /1);
+    /* #FFEE00; */
+
+    --color-a: rgb(0 0 0 / 1);
+    /* --color-a-hover: rgb(0 255 0 /1); */
+    --color-a-hover: rgb(0 17 255 /1);
+    /* #0011ff */
+
+    --color-siteheader-bg: transparent;
+    --color-siteheader-a: var(--color-text-headings);
+    
+    --color-hero-bg: rgb(100 100 100 /1);
+    --color-hero-headings: rgb(0 0 0 / .8);
+    --color-hero-text: rgb(0 0 0 / .8);
+    
+    --color-footer-bg: rgb(0 0 0 /1);
+    --color-footer-text: rgb(255 255 255 /.8);
+    --color-footer-headings: rgb(255 255 255 /.8);
+    --color-footer-a: rgb(255 255 255 /1);
+
+    /*  DEFINE ALL FONTS USED HERE */
+    --font-serif-bold: 'ppeditorial-old-bold', 'Georgia', serif;
+    --font-serif-regular: 'ppeditorial-old-regular', 'Georgia', serif;
+    --font-serif-regularitalic: 'ppeditorial-old-italic', 'Georgia', serif;
+    --font-serif-thin: 'ppeditorial-old-thin', 'Georgia', serif;
+    --font-serifthinitalic: 'ppeditorial-old-thinitalic', 'Georgia', serif;
+    --font-body: "Karla", system-ui, "Helvetica", "Arial";
+
+    /* SIZING UNITS */
+    /* --container-width: 1200px; */
+    --container-width: 70vw;
+    --unit-small: 1em;
+    --unit-medium: 2em;
+    --unit-large: 4em;
+
+}
+
+/* GLOBAL RESET */
+
+/* CHANGE BOX-SIZING FOR ALL TO BORDER-BOX */
+* { box-sizing: border-box; }
+
+/* REMOVE THE DEFAULT 8px MARGIN ON THE BODY */
+body { margin: 0; }
+
+
+/* GLOBAL COLORS */
+body {
+
+    /* SET THE COLOR OF THE MAIN BODY BACKGROUND */
+    background-color: var(--color-body-bg);
+
+    /* SET THE COLOR OF THE MAIN BODY TEXT */
+    color: var(--color-black);
+}
+
+h1, h2, h3 {
+
+    /* SET THE COLOR OF ALL HEADINGS H1-etc */
+    color: var(--color-black);
+}
+
+a {
+    /* SET THE COLOR OF ALL TEXT LINKS */
+    color: var(--color-a);
+    text-decoration: none;
+    font-weight: 450;
+
+    /* SET THE COLOR OF ALL HOVER STATES ON TEXT LINKS */
+    &:hover {
+        color: var(--color-a-hover);
+    }
+}
+
+/* GLOBAL TYPOGRAPHY */
+body {
+
+    /* SET THE FONT FOR ALL MAIN BODY TEXT */
+    /* font-family: var(--font-body); */
+
+    /* SET THE LEADING (LINE-HEIGHT) FOR ALL BODY TEXT */
+    line-height: 1.4;
+}
+
+/* SET THE FONT & MARGIN FOR ALL HEADINGS */
+h1, h2, h3 {
+    font-family: var(--font-serif-bold);
+    margin: .4em 0;
+}
+
+h3 {
+    font-family: var(--font-serif-regular);
+    margin: .4em 0;
+}
+
+h1 {
+    font-size: 3em;
+    line-height: 1.1;
+}
+
+h2 {
+    font-size: 2em;
+    line-height: 1.2;
+}
+
+h3 {
+    font-size: 1.5em;
+    line-height: 1.3;
+}
+
+h4 {
+    font-size: 1.25em;
+    line-height: 1.2;
+    font-family: var(--font-body);
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+dt {
+    font-family: var(--font-body);
+    font-weight: 600;
+}
+
+p {
+    /* LIMIT THE WIDTH OF ALL PARAGRAPHS */
+    max-width: 65ch;
+
+    /* NEW SCHOOL WIDOW SLAYER */
+    text-wrap: pretty;
+
+}
+
+blockquote {
+    margin: .5em 0 .25em 0;
+    padding: 0;
+    font-family: var(--font-serif-regularitalic);
+    font-size: 1.5em;
+    line-height: 1.2;
+    font-feature-settings: "dlig" 1;
+
+}
+
+figcaption {
+    font-weight: 200;
+    /* font-size: 75%; */
+    margin: 1em 0;
+}
+
+/* GLOBAL MEDIA */
+
+/* MAKE ALL IMAGES SHRINK ON SMALL SCREENS */
+
+/* QUESTION: is video 100%??? */
+img, video {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+
+/* GLOBAL HELPERS */
+
+/* HIDE ELEMENTS VISUALLY BUT NOT FROM SCREEN READERS AND SEARCH ENGINES */
+.hide-visually {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+}
+
+@media (max-width: 767px) {
+    .hide-visually-smallonly {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+}
+
+/* Align left/right/center */
+.align-right {
+    text-align: right;
+}
+
+
+
+/* ------------------- */
+/* -----  LAYOUT ----- */
+/* ------------------- */
+
+/* RESPONSIVE TYPOGRAPHY VIA MEDIA QUERIES */
+
+/* SMALL SCREENS (Mobile , 767px) */
+body {
+    /* Set the default font size */
+    font-size: 87.5%; 
+}
+
+/* MEDIUM SCREENS ( Tablets < 1200px ) */
+@media (min-width: 768px) {
+    body {
+        /* Set the medium screens and highr font size to 16px */
+        font-size: 100%; 
+    }
+}
+
+/* LARGE SCREENS ( Laptops & Desktop > 1200px ) */
+
+@media (min-width: 1200px) {
+    body {
+        /* Set the medium screens and highr font size to 16px */
+        font-size: 112.5%; 
+    }
+}
+
+/* CONTAINER */
+.container {
+    /* SET THE MAX WIDTH OF YOUR SITE (eg 1200px) */
+    max-width: var(--container-width);
+
+    /* CENTER THE CONTAINER HORIZONTALLY*/
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* GRID */
+.row {
+    --gridgap: 2em;
+}
+
+/* - All the children under row */
+.row > * {
+
+    /* - Setting bttom margin for each fraction */
+    margin-top: var(--gridgap);
+    margin-bottom: var(--gridgap);
+}
+
+@media (min-width: 768px) {
+
+    .row {
+        /* - Create grid in 12 columns, with equal fractions */
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: var(--gridgap);
+    }
+
+    /* COMMONLY USED SEMANTIC COLUMN WIDTHS
+       - Setting size for each grid */
+    .one-half { grid-column: auto / span 6; }
+    .one-third { grid-column: auto / span 4; }
+    .two-thirds { grid-column: auto / span 8; }
+    .one-fourth { grid-column: auto / span 3; }
+    .three-fourths { grid-column: auto / span 9; }
+
+    /* - 12 Column Classes */
+    .col-1 {grid-column: auto / span 1; }
+    .col-2 {grid-column: auto / span 2; }
+    .col-3 {grid-column: auto / span 3; }
+    .col-4 {grid-column: auto / span 4; }
+    .col-5 {grid-column: auto / span 5; }
+    .col-6 {grid-column: auto / span 6; }
+    .col-7 {grid-column: auto / span 7; }
+    .col-8 {grid-column: auto / span 8; }
+    .col-9 {grid-column: auto / span 9; }
+    .col-10 {grid-column: auto / span 10; }
+    .col-11 {grid-column: auto / span 11; }
+    .col-12 {grid-column: auto / span 12; }
+
+    /*  - Centered columns */
+    .one-half.centered {grid-column: 4 / span 6; }
+    .one-third.centered {grid-column: 5 / span 4; } 
+    .two-thirds.centered {grid-column: 3 / span 8; } 
+
+    /* - Pushes */
+    .push-1 { grid-column-start: 2; }
+    .push-2 { grid-column-start: 3; }
+    .push-3 { grid-column-start: 4; }
+    .push-4 { grid-column-start: 5; }
+    .push-5 { grid-column-start: 6; }
+    .push-6 { grid-column-start: 7; }
+    .push-7 { grid-column-start: 8; }
+    .push-8 { grid-column-start: 9; }
+    .push-9 { grid-column-start: 10; }
+    .push-10 { grid-column-start: 11; }
+    .push-11 { grid-column-start: 12; }
+
+    /* SWAP (REVERSE) COLUMNS - WORKS ONLY w/ 2 CHILDREN  */
+    .row.swapped > *:first-child { order: 2; }
+    .row.swapped > *:last-child { order: 1; }
+
+}
+
+/* FOR DEMO PURPOSES */
+.demo > * {
+    background-color: #444;
+    padding: 1em;;
+    text-align: center;
+}
+
+/* ------------------- */
+/* -  SITE STRUCTURE - */
+/* ------------------- */
+
+/* SITE HEADER */
+.site-header {
+    background-color: var(--color-siteheader-bg);
+    /* border: 1px solid  red; */
+    
+    /* PUT ALL HEADER CHILDREN SIDE-BY-SIDE AND VERT CENTERED */
+    /* @media (min-width: 768px) {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    
+    } */
+
+    /* ADD SOME GENERAL SPACING AROUND THE HEADER */
+    padding: var(--unit-medium);
+
+   /* REMOVE LINK UNDERLINES */
+    a {
+        text-decoration: none;
+    }
+    
+    /* SITE LOGO */
+    .site-logo {
+
+        /* PUT SITE LOGO CHILDREN SIDE-BY-SIDE AND CENTER */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1em;
+
+        /* REMOVE MARGINS AND RESIZE H1 INSIDE HEADER */
+        h1 {
+            font-size: 2em;
+            margin: 0;
+            text-wrap: nowrap;
+        }
+
+        /* REMOVE THE SPACE UDER THE LOGO MARK */
+        img, svg {
+            display: block;
+        }
+
+    }
+
+    /* SITE-HEADER-NAV */
+    .site-header-nav {
+        ul {
+            /* REMOVE MARGINS & BULLETS FROM LIST */
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        
+        }
+
+        /* MAKE SITE NAV LINKS BIG LIKE BUTTONS */
+        a {
+            display: block;
+            padding: 1em;
+        }
+
+    }
+
+}
+
+/* TOGGLE MENU */
+
+/*HIDE MENU BUTTON IF NOT USING TOGGLE MENU  */
+.site-menu-button {
+    display: none;
+}
+
+.toggle-menu {
+
+    --color-togglemenu-bg: black;
+    --color-togglemenu-text: white;
+
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+
+    /* SHOW MENU BUTTON IF USING TOGGLE NAV */
+    .site-menu-button {
+        display: block;
+        background-color: transparent;
+        border: 1px solid var(--color-siteheader-a);
+        color: var(--color-siteheader-a);
+        padding: .5em;
+        position: relative;
+        z-index: 100;
+        transition: .4s all ease-out;
+
+        /* RESET THE FONT SIZE */
+        font-size: inherit;
+
+        &:hover {
+            cursor: pointer;
+        }
+
+        /* ADD SUPPORT FOR NAVICON/HAMBURGER ICON */
+        &:has(svg) {
+
+            /* VERTICALLY ALIGN THE MENU TEXT W ICON */
+            display: flex;
+            align-content: center;
+            gap: var(--unit-small);
+
+            /* REMOVE BORDER */
+            border: none;
+            
+            /* SET TSVG COLOR */
+            svg {
+                fill: var(--color-siteheader-a);
+            }
+
+            /* ADD SUPPORT FOR SVG ANIMATION (">" MEANS "IMEDIATE CHILD") */
+            svg > * {
+                transition: .2s all ease-out;
+                transform-origin: center;
+            }
+
+        }
+    }
+
+    .site-menu {
+        /* SET COLOR TO TOGGLE MENU */
+        background-color: var(--color-togglemenu-bg);
+        color: var(--color-togglemenu-text);
+
+        position: fixed;
+        top: 0;
+        right: 0; 
+        z-index: 50;
+        width: 100%;
+        min-height: 100svh;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-size: 3vw;
+        transition: .4s all ease-out;
+
+        a {
+            color: var(--color-togglemenu-text);
+            padding: 2vh 2vw;
+        }
+
+    }
+
+    &[data-menustate="open"] {
+
+        /* CHANGE COLOR TO TOGGLE MENU COLORS */
+        --color-siteheader-a: var(--color-togglemenu-text);
+
+        /* SET MENU BUTTON TO FIXED WHEN MENU IS OPEN */
+        .site-menu-button {
+            position: fixed;
+            z-index: 100;
+        }
+
+        /* SHOW THE SITE MENU WHEN OPEN */
+        .site-menu {
+            transform: translateX(0);
+        }
+
+        /* ANIMATE THE NAVICON / HAMBURGER TO AN X */
+        .site-menu-button svg {
+
+            .simple-navicon-top {
+                /* transform: rotate(45deg); */
+                rotate: 45deg;
+                translate: -21% 25%;
+            }
+
+            .simple-navicon-middle {
+                opacity: 0;
+            }
+
+            .simple-navicon-bottom {
+                rotate: -45deg;
+                translate: -21% -25%;
+            }
+
+        }
+
+    }
+
+    &[data-menustate="closed"] {
+
+        /* MOVE THE SIDE MENU TO THE RIGHT WHEN CLOSED */
+        .site-menu {
+            transform: translateX(100%);
+        }
+    }
+
+    /* IF TOGGLE MENU DISPLAY LOGO LEFT AND MENU RIGHT ON ALL SCREENS */
+    .site-header:has(.toggle-menu) {
+
+        display: flex;
+        justify-content: space-between;
+    }
+
+    /* PLACE SITE LOGO ON TOP OF DRAWER MENU */
+    .site-logo {
+    /* NOTE: LOGO WILL SCROLL AWAY - NEED TO ADD SUPPORT FOR FIXED */
+    /* position: relative; */
+    z-index: 100;
+    }
+}
+
+/* SITE MAIN */
+.site-main {
+    /* border: 2px solid red; */
+    /* padding-bottom: 16em; */
+}
+
+/* SECTIONS */
+section {
+    padding: var(--unit-large) var(--unit-medium);
+}
+
+/* HERO SECTION */
+.hero {
+    background-color: var(--color-hero-bg);
+    color: var(--color-hero-text);
+    display: block;
+    place-items: center;
+
+    /* ADD MORE SPACE ON TOP FOR THE ABSOLUTE HEADER */
+    padding-top: calc(4em + var(--unit-large));
+
+    h1 {
+        font-size: 4em;
+        line-height: 1;
+        text-wrap: balance;
+    }
+
+    h1, h2, h3 {
+        color: var(--color-hero-headings);
+    }
+}
+
+/* SITE FOOTER */
+.site-footer {
+    background-color: var(--color-footer-bg);
+    color: var(--color-footer-text);
+
+    height: 60vh;
+    margin-top: -90px;
+    /* background-color: black; */
+    /* color: var(--my-white); */
+    border-top-right-radius: 32px;
+    border-top-left-radius: 32px;
+
+
+    /* .row.footer {
+        margin-bottom: 8em;
+    }
+    */
+
+    .social-links {
+        letter-spacing: 2px;
+    } 
+
+    /* ADD SOME GENERAL PADDING AROUND THE FOOTER */
+    padding: var(--unit-large) var(--unit-medium);
+
+    h1, h2, h3 {
+        color: var(--color-footer-headings);
+        font-family: var(--font-serif-regular);
+        font-feature-settings: "dlig" 1;
+        font-weight: normal;
+        /* text-transform: uppercase; */
+    }
+
+    h2 {
+        font-size: 4vw;
+    }
+
+    h3 ul {
+        font-family: var(--font-serif-thin);
+    }
+
+    ul {
+        list-style: none;
+
+    }
+
+    a{
+        color: var(--color-footer-a);
+        
+        &:hover {
+            color: var(--color-yellow);
+        }
+    }
+
+}
+
+/* SITE NAV */ 
+.site-nav {
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    /* margin: 0 auto;
+    width: 1200px; */
+}
+
+.site-nav ul {
+    /* width: 100%; */
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.site-nav a {
+    padding: .5em 1em;
+    text-decoration: none;   
+}
+
+
+
+/* -------------------- */
+/* --  UI COMPONENTS -- */
+/* -------------------- */
+
+.a-button {
+    /* SET THE BUTTON COLORS */
+    /* border: 1px solid var(--color-black60); */
+    background-color: var(--color-body-bg);
+    border: 2px solid var(--color-black);
+    border-radius: 4px;
+    color: var(--color-black);
+
+    /* ENABLE BOX MODEL STYLING */
+    display: inline-block;
+    padding: 0.25em 1em;
+    margin: var(--unit-small) 0;
+
+    /* GET RID OF THE UNDERLINE */
+    text-decoration: none;
+
+    + .button {
+        margin-left: var(--unit-small);
+    }
+
+    &:hover {
+        color: var(--color-yellow);
+        background-color: var(--color-a-hover);
+        border-color: var(--color-a-hover);
+
+    }
+
+    /* LIGHT BUTTON VARIANT */
+    /* &.light {
+        border-color: var(--color-a-light);
+        background-color: var(--color-a-light);
+        color: var(--color-a-darker);
+
+        &:hover {
+            border-color: var(--color-a-lighter);
+            background-color: var(--color-a-lighter);
+        }
+    } */
+
+}
+
+
+/* -------------------- */
+/* --    ANIMATION   -- */
+/* -------------------- */
+
+/* ADD SUPPORT FOR SMOOTH SCROLLING */
+html {
+    scroll-behavior: smooth;
+}
+
+/* SCROLL TRIGGERED ANIMATION
+ * corresponding with JS
+ */
+
+/* [data-page-loaded="not-loaded"] .hero .observe-me {
+    transition-delay: 3s;
+} */
+
+.observe-me {
+    opacity: 0;
+    transition: all .75s ease-out 0.5s;
+
+    &[data-viewstate="active"] {
+        opacity: 1;
+    }
+}
+
+.animate-from-top {
+    translate: 0 -100px;
+
+    &[data-viewstate="active"] {
+        translate: 0 0;
+    }
+}
+
+.animate-from-right {
+    translate: 20px 0;
+    transition-delay: .25s;
+
+    &[data-viewstate="active"] {
+        translate: 0 0;
+    }
+}
+
+.animate-from-left {
+    translate: -20px 0;
+    transition-delay: .5s;
+
+    &[data-viewstate="active"] {
+        translate: 0 0;
+    }
+}
+
+.animate-from-bottom {
+    translate: 0 20px;
+    transition-delay: .5s;
+
+    &[data-viewstate="active"] {
+        translate: 0 0;
+    }
+}
+
+.slide-up {
+    translate: 0 200px;
+    transition-delay: .5s;
+
+    &[data-viewstate="active"] {
+        translate: 0 0;
+    }
+}
+
+/* -------------------- */
+/* -- CUSTOM STYLING -- */
+/* -------------------- */
+
+/* CUSTOM STYLING FOR HOME */
+
+.frame {
+    /* border: 2px solid gray;
+    background-color: gray; */
+    border-radius: 32px;
+    /* margin: 3em 0; */
+    padding: 8svh 8vw;
+    color: var(--color-black);
+    /* padding: clamp(2em, 6vh, 6em) clamp(2em, 6vw, 6em); */
+    /* width: 95vw; */
+    /* min-height: 85svh; */
+    /* display: grid;
+    place-items: center; */
+}
+
+.frame .row {
+    margin: 0;
+    padding: 0;
+    /* border: 2px solid red; */
+}
+
+.frame .row .one-half {
+    /* border: 2px solid red; */
+    margin: 0;
+    padding: 0;
+}
+
+.hero-home .frame .eyebrow {
+    font-family: var(--font-body);
+    font-size: 1.5vw;
+    line-height: 1.2;
+    font-weight: 300;
+    text-transform: uppercase;
+    margin: 1em 0 0.5em 0;
+}
+
+.hero-home .frame h2 {
+    /* border: 2px solid red; */
+    margin: 0;
+    padding: 0;
+    font-size: 8vw;
+    line-height: 1;
+    text-transform: uppercase;
+    font-feature-settings: "dlig" 1;
+}
+
+.hero-home .frame p {
+    font-size: 1.5vw;
+    line-height: 1.9vw;
+    margin-top: 0;
+    margin-bottom: 1.2vw;
+    padding: 0;
+    /* margin-top: 0.9vw; */
+}
+
+.hero-home .frame p span {
+    font-weight: 400;
+    /* font-family: var(--font-serif-regularitalic);
+    font-feature-settings: "dlig" 1;
+    font-size: 1.25vw; */
+}
+
+.hero-home .frame a {
+    color: var(--color-a);
+
+    &:hover {
+        color: var(--color-a-hover);
+    }
+}
+
+.hero-home .frame h3 {
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-serif-regularitalic);
+    font-size: 2vw;
+    line-height: 1.2;
+    font-feature-settings: "dlig" 1;
+    /* color: var(--color-white); */
+}
+
+.load-expand {
+    position: relative;
+    background-color: transparent;
+    border: none;
+}
+
+.load-expand::after {
+    content: "";
+    position: absolute;
+    z-index: 100;
+    top: 50%;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    translate: 0 -50%;
+    background-color: var(--color-yellow);
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+    /* padding: 0; */
+    margin-inline: auto;
+    interpolate-size: allow-keywords;
+    animation: load-expand 1s ease-out forwards; 
+}
+
+.load-expand > * {
+    opacity: 0;
+    position: relative;
+    z-index: 200;
+    /* display: none; */
+    /* scale: 0; */
+    animation: load-expand-content 1s ease-out forwards; 
+}
+
+@keyframes load-expand {
+
+    0% {
+        width: 10px;
+        height: 10px;
+        /* scale: 0; */
+        border-radius: 100%;
+        /* padding: 0; */
+        /* margin-inline: auto; */
+    }
+
+    20% {
+        width: 200px;
+        height: 200px;
+        /* scale: 1; */
+        border-radius: 100%;
+        /* padding: 0; */
+    }
+
+    100% {
+        width: 100%;
+        height: 100%;
+        border-radius: 32px;
+        /* padding: 0; */
+        /* margin-inline: auto; */
+    }
+}
+
+@keyframes load-expand-content {
+
+    0% {
+        opacity: 0;
+    }
+
+
+    99% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+#sandboxes,
+#about {
+    /* min-height: 100svh; */
+}
+
+#sandboxes h2,
+#about h2 {
+    /* text-transform: uppercase; */
+    font-feature-settings: "dlig" 1;
+    text-align: center;
+    font-size: 6em;
+}
+
+#sandboxes h2 {
+    z-index: -10;
+}
+
+/* Sandboxes bespoke grid */
+.sandboxes-wrapper {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(8, 1fr);
+}
+
+/* Sandboxes bespoke layout using the above grid */
+.sandboxes-wrapper > *:nth-child(1) {
+    grid-column: 1 / span 6;
+    grid-row: 1 / span 2;
+}
+
+.sandboxes-wrapper > *:nth-child(2) {
+    grid-column: 8 / span 5;
+    grid-row: 2 / span 2;
+}
+
+.sandboxes-wrapper > *:nth-child(3) {
+    grid-column: 2 / span 4;
+    grid-row: 4 / span 2;
+}
+
+.sandboxes-wrapper > *:nth-child(4) {
+    grid-column: 7 / span 6;
+    grid-row: 6 / span 2;
+}
+
+#sandboxes .container {
+    position: relative;
+}
+
+.fixed-title {
+    position: sticky;
+    top: 50%;
+    translate: 0 -50%;
+    z-index: -1;
+}
+
+
+.card {
+    /* border: 1px solid blue; */
+    border-radius: 5%;
+    filter: brightness(.9);
+    overflow: hidden;
+    /* box-shadow: 0 4px 8px 0 var(--my-black20); */
+    transition: 0.3s;
+    /* margin: 30px auto;  */
+    cursor: pointer;
+
+    &:hover {
+        box-shadow: 0 0 24px 0 var(--color-black);
+    }
+
+}
+
+.card img {
+    display: block;
+
+    /* For cases that images are in different shapes or the parent dictate the shape of cards */
+    /* object-fit: cover;
+    width: 100%;
+    height: 100%; */
+
+    &:hover {
+        filter: brightness(1.05);
+        border: 1px solid rgb(0, 0, 0 /.3);
+        transform: scale(1.05, 1.05);
+    }
+}
+
+#about h2 {
+    mix-blend-mode: overlay;
+    /* mix-blend-mode: difference; */
+    /* z-index: 100; */
+}
+
+#about h2,
+#about h4,
+#about p,
+#about dl {
+    color: var(--color-black);
+}
+
+#about a {
+    color: var(--color-a);
+
+    &:hover {
+        color: var(--color-a-hover);
+    }
+}
+
+#about .two-thirds h2 {
+    text-align: left;
+    margin: var(--unit-small) 0;
+}
+
+#about .two-thirds p {
+    font-size: 1.5em;
+    letter-spacing: 0px;
+    line-height: 1.3;
+    margin-bottom: 1em;
+}
+
+/* CUSTOM STYLING FOR SUBPAGES */
+.casestudy {
+    padding-bottom: 50svh;
+}
+
+.casestudy .row {
+    margin: calc(var(--unit-large) * 2) 0;
+}
+
+.casestudy .frame {
+    margin: 0;
+    padding: 3svh;
+}
+
+.hero-sub {
+    margin: 0;
+    padding: 0;
+    min-height: 90svh;
+}
+
+/* Refactor: Organize the unnecessary class names */
+.title-subpage {
+    /* width: 100%; */
+    height: 15vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* padding: 6em 0 6em 0; */
+    margin: var(--unit-medium);
+    text-align: center;
+    color: var(--my-black);
+    /* animation-name: fadein-up;
+    animation-duration: 2s; */
+}
+
+.title-subpage h2 {
+    text-transform: uppercase;
+    font-family: var(--font-serif-bold);
+    font-weight: normal;
+    font-feature-settings: "dlig" 1;
+    font-size: 3.5em;
+}
+
+@media ( max-width: 767px ) {
+    .title-subpage {
+        width: 100%;
+        height: 85vh;
+        padding: 24em 4em;
+    }
+}
+
+.casestudy {
+    /* QUESTION: how can I add filter background drop to hero? */
+    /* background-color: transparent; */
+    background-color: var(--color-body-bg);
+    /* -webkit-backdrop-filter: blur(5px); */
+    /* backdrop-filter: blur(5px); */
+}
+
+.casestudy h2, h5 {
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.casestudy h2, h3 {
+    font-feature-settings: "dlig" 1;
+}
+
+.casestudy h3 {
+    font-family: var(--font-serif-regularitalic);
+}
+
+.container-img {
+    /* border: 2px solid red; */
+    display: grid;
+    place-items: center;
+    width: 100wv;
+    padding: 0;
+    margin: 4em 0;
+}
+
+.container-img img {
+    width: 100%;
+}
+
+.inspo-source {
+    padding: 0 1em;
+}
+
+figure {
+    padding: 4em 0 0 0;
+    margin: 0;
+}
+
+.video-wrapper {
+    overflow: hidden;
+}
+
+.video-wrapper video {
+    border-radius: 8px;
+    max-width: 100%;
+    /* margin-bottom: 8em; */
+    /* width: calc(100% + 6px); */
+    /* height: calc(100% + 2px); */
+    /* margin: -3px -1px; */
+}
+
+.button-wrapper {
+    margin: 6em 0 1em 0;
+    display: grid;
+    place-items: center;
+}
+
+/* QUESTION: why is the border radius unvisible? */
+.img-wrapper {
+    /* margin: 2em 0; */
+    border-radius: 8px;
+    max-width: 100%;
+}
+
+.fixed-hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70vh;
+    width: auto;
+    background-size: 100%;
+    background-position: center;
+
+/* This won't work on safari: refactor to position-fixed */
+    /* background-attachment: fixed; */
+    position: fixed;
+    /* refactor:use intersection observer and onscroll scale*/
+    /* top: 0; */
+    /* left: 0;
+    bottom: 0; */ 
+
+    z-index: -1;
+}
+
+.fixed-hero-criminal {
+    background-image: url(../work-criminalspinoff/img/criminal_hero_1920x1080-75.webp);
+    width: 100%;
+    /* height: 30svh; */
+}
+
+.fixed-hero-sneilfujita {
+    background-image: url(../work-sneilfujita/img/sneilfujita_hero_1920x1080-75.webp);
+    width: 100%;
+    /* height: 30svh; */
+}
+
+.project-metadata {
+    font-size: 0.75em;   /* 12px */
+    line-height: 1.8;
+    list-style: none;
+    padding-left: 0.25em;
+}
+
+.case-study .one-half ul,
+.case-study .one-third ul {
+    font-size: 0.75em;   /* 12px */
+    font-weight: 200;
+    margin: 1em 0;
+    padding-left: 1em;
+    max-width: 38em;
+    list-style-position: outside;
+}
+
+
+
+/* FOR DEV PURPOSES ONLY */
+/*  Small (Mobile) Screen => ( max-width: 768px )
+    Midsize (Tablet) Screen =>  ( min-width: 768px )
+    Large (Notebook) Screen => ( min-width: 1050px ) 
+    Extra Large (Desktop) Screen 1250px + => ( min-width: 1250px)
+*/
+
+/* FOR DEV TESTING PURPOSES ONLY */
+/* body *, *:before, *:after {
+    background-color: rgba(0,0,0,.05) !important;
+    background-image: none !important;
+    border: 1px solid rgba(0,0,0,.1) !important;
+    color: rgba(0,0,0,.5) !important;
+}
+
+img, svg, canvas, video, iframe {
+    filter: grayscale(100%) brightness(0%) opacity(5%) !important;
+    background-color: rgba(0,0,0,.05) !important;
+    background-image: none !important;
+} */

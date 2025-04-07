@@ -104,9 +104,7 @@ CSS TABLE OF CONTENTS
 
     /* DEFINE ALL COMMONLY USED COLORS HERE */
 
-    /* --color-body-bg: rgb(235, 235, 215); */
-    /* --color-body-bg: rgb(242 242 230 /	1); */
-    --color-body-bg: rgb(245, 245, 238);
+    /* --color-body-bg: rgb(245 245 238 / 1); */
     --color-black: rgb(25 25 25 / .85);
     --color-black50: rgba(108 70 70, .5);
     --color-black60: rgb(25 25 25 / .6);
@@ -123,14 +121,20 @@ CSS TABLE OF CONTENTS
     --color-siteheader-bg: transparent;
     --color-siteheader-a: var(--color-text-headings);
     
-    --color-hero-bg: rgb(100 100 100 /1);
+    /* --color-hero-bg: rgb(100 100 100 /1);
     --color-hero-headings: rgb(0 0 0 / .8);
-    --color-hero-text: rgb(0 0 0 / .8);
+    --color-hero-text: rgb(0 0 0 / .8); */
     
     --color-footer-bg: rgb(0 0 0 /1);
     --color-footer-text: rgb(255 255 255 /.8);
     --color-footer-headings: rgb(255 255 255 /.8);
     --color-footer-a: rgb(255 255 255 /1);
+
+    /* Alt color test  */
+    --color-body-bg: rgb(25 25 25 / 1);
+    --color-a: rgb(255 255 255 / 1);
+
+
 
     /*  DEFINE ALL FONTS USED HERE */
     --font-serif-bold: 'ppeditorial-old-bold', 'Georgia', serif;

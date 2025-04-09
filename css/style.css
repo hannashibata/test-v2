@@ -104,22 +104,25 @@ CSS TABLE OF CONTENTS
 
     /* DEFINE ALL COMMONLY USED COLORS HERE */
 
-    /* --color-body-bg: rgb(245 245 238 / 1); */
-    --color-black: rgb(25 25 25 / .85);
-    --color-black50: rgba(108 70 70, .5);
-    --color-black60: rgb(25 25 25 / .6);
-    /* --color-white: rgb(235 235 235 / .9); */
-    /* --color-yellow: rgb(255 255 0/ 1); */
-    --color-yellow: rgb(255 238 0 /1);
-    /* #FFEE00; */
+    /* Dark background */
+    --color-body-bg: rgb(25 25 25 / 1);
 
-    --color-a: rgb(0 0 0 / 1);
-    /* --color-a-hover: rgb(0 255 0 /1); */
-    --color-a-hover: rgb(0 17 255 /1);
-    /* #0011ff */
+    /* Light background */
+    /* --color-body-bg: rgb(245 245 238 / 1); */
+
+    --color-black: rgb(25 25 25 / .85);
+    --color-white: rgb(245 245 238 / 1);
+    --color-yellow: rgb(255 238 0 /1);
+    --color-blue: rgb(0 17 255 /1);
+    /* #0011ff #FFEE00; */
+
+    --color-a-onlight: rgb(0 0 0 / 1);
+    --color-a-ondark: rgb(255 255 255 / 1);
 
     --color-siteheader-bg: transparent;
-    --color-siteheader-a: var(--color-text-headings);
+    --color-text-onlight: var(--color-black);
+    --color-text-headings-onlight: var(--color-black);
+    --color-siteheader-a: var(--color-text-headings-onlight);
     
     /* --color-hero-bg: rgb(100 100 100 /1);
     --color-hero-headings: rgb(0 0 0 / .8);
@@ -130,9 +133,7 @@ CSS TABLE OF CONTENTS
     --color-footer-headings: rgb(255 255 255 /.8);
     --color-footer-a: rgb(255 255 255 /1);
 
-    /* Alt color test  */
-    --color-body-bg: rgb(25 25 25 / 1);
-    --color-a: rgb(255 255 255 / 1);
+   
 
 
 
@@ -180,13 +181,13 @@ h1, h2, h3 {
 
 a {
     /* SET THE COLOR OF ALL TEXT LINKS */
-    color: var(--color-a);
+    color: var(--color-a-ondark);
     text-decoration: none;
     font-weight: 450;
 
     /* SET THE COLOR OF ALL HOVER STATES ON TEXT LINKS */
     &:hover {
-        color: var(--color-a-hover);
+        color: var(--color-a-ondark-hover);
     }
 }
 
@@ -749,11 +750,10 @@ section {
 
 .a-button {
     /* SET THE BUTTON COLORS */
-    /* border: 1px solid var(--color-black60); */
     background-color: var(--color-body-bg);
-    border: 2px solid var(--color-black);
+    border: 2px solid var(--color-white);
     border-radius: 4px;
-    color: var(--color-black);
+    color: var(--color-a-ondark);
 
     /* ENABLE BOX MODEL STYLING */
     display: inline-block;
@@ -769,8 +769,8 @@ section {
 
     &:hover {
         color: var(--color-yellow);
-        background-color: var(--color-a-hover);
-        border-color: var(--color-a-hover);
+        background-color: var(--color-blue);
+        border-color: var(--color-blue);
 
     }
 
@@ -866,27 +866,24 @@ html {
 /* CUSTOM STYLING FOR HOME */
 
 .frame {
-    /* border: 2px solid gray;
-    background-color: gray; */
     border-radius: 32px;
-    /* margin: 3em 0; */
     padding: 8svh 8vw;
     color: var(--color-black);
-    /* padding: clamp(2em, 6vh, 6em) clamp(2em, 6vw, 6em); */
-    /* width: 95vw; */
-    /* min-height: 85svh; */
-    /* display: grid;
-    place-items: center; */
 }
 
-.frame .row {
+.frame-alt {
+    border-radius: 32px;
+    padding: 8svh 8vw;
+    border: 2px solid var(--color-yellow);
+}
+
+.frame .row,
+.frame-alt .row {
     margin: 0;
     padding: 0;
-    /* border: 2px solid red; */
 }
 
 .frame .row .one-half {
-    /* border: 2px solid red; */
     margin: 0;
     padding: 0;
 }
@@ -927,10 +924,10 @@ html {
 }
 
 .hero-home .frame a {
-    color: var(--color-a);
+    color: var(--color-a-onlight);
 
     &:hover {
-        color: var(--color-a-hover);
+        color: var(--color-blue);
     }
 }
 
@@ -1110,6 +1107,9 @@ html {
     }
 }
 
+
+/* ABOUT SECTION TYPOGRAPHY & LAYOUT*/
+
 #about h2 {
     mix-blend-mode: overlay;
     /* mix-blend-mode: difference; */
@@ -1117,29 +1117,44 @@ html {
 }
 
 #about h2,
+#about h3,
 #about h4,
 #about p,
 #about dl {
-    color: var(--color-black);
+    color: var(--color-white);
+}
+
+#about h3 {
+    font-weight: normal;
+}
+
+#about h4 {
+    font-weight: 500;
+    margin: 0;
+}
+
+#about p {
+    margin: 0;
 }
 
 #about a {
-    color: var(--color-a);
+    color: var(--color-a-ondark);
 
     &:hover {
-        color: var(--color-a-hover);
+        color: var(--color-a-ondark-hover);
     }
 }
 
 #about .two-thirds h2 {
     text-align: left;
-    margin: var(--unit-small) 0;
+    margin: 0 var(--unit-small) 0;
+    padding: 0;
 }
 
-#about .two-thirds p {
-    font-size: 1.5em;
-    letter-spacing: 0px;
-    line-height: 1.3;
+#about .one-third p {
+    /* font-size: 1.5em; */
+        /* line-height: 1.3; */
+    /* letter-spacing: 0px; */
     margin-bottom: 1em;
 }
 
@@ -1321,9 +1336,24 @@ figure {
     Extra Large (Desktop) Screen 1250px + => ( min-width: 1250px)
 */
 
-/* FOR DEV TESTING PURPOSES ONLY */
+/* FOR DEV TESTING PURPOSES ONLY: light */
 /* body *, *:before, *:after {
     background-color: rgba(0,0,0,.05) !important;
+    background-image: none !important;
+    border: 1px solid rgba(0,0,0,.1) !important;
+    color: rgba(0,0,0,.5) !important;
+}
+
+img, svg, canvas, video, iframe {
+    filter: grayscale(100%) brightness(0%) opacity(5%) !important;
+    background-color: rgba(0,0,0,.05) !important;
+    background-image: none !important;
+} */
+
+
+/* FOR DEV TESTING PURPOSES ONLY: dark */
+/* body *, *:before, *:after {
+    background-color: rgba(255,255,255,.05) !important;
     background-image: none !important;
     border: 1px solid rgba(0,0,0,.1) !important;
     color: rgba(0,0,0,.5) !important;

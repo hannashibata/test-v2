@@ -103,51 +103,57 @@ CSS TABLE OF CONTENTS
 :root {
 
     /* DEFINE ALL COMMONLY USED COLORS HERE */
-
-    /* Dark background */
-    --color-body-bg: rgb(25 25 25 / 1);
-
-    /* Light background */
-    /* --color-body-bg: rgb(245 245 238 / 1); */
-
     --color-black: rgb(25 25 25 / .85);
     --color-white: rgb(245 245 238 / 1);
+    --color-white85: rgb(245 245 238 / .85);
     --color-yellow: rgb(255 238 0 /1);
     --color-blue: rgb(0 17 255 /1);
     /* #0011ff #FFEE00; */
 
-    --color-a-onlight: rgb(0 0 0 / 1);
-    --color-a-ondark: rgb(255 255 255 / 1);
 
-    --color-siteheader-bg: transparent;
-    --color-text-onlight: var(--color-black);
-    --color-text-headings-onlight: var(--color-black);
-    --color-siteheader-a: var(--color-text-headings-onlight);
-    
-    /* --color-hero-bg: rgb(100 100 100 /1);
-    --color-hero-headings: rgb(0 0 0 / .8);
-    --color-hero-text: rgb(0 0 0 / .8); */
-    
+    /* Dark mode */
+    --color-body-bg: rgb(25 25 25 / 1);
+    --color-a: rgb(255 255 255 / 1);
+    --color-a-hover: var(--color-yellow);
+    --color-siteheader-a: var(--color-white);
+    --color-siteheader-a-hover: var(--color-yellow);
+    --color-footer-bg: var(--color-white);
+    --color-footer-text: var(--color-black);
+    --color-footer-a: rgb(0 0 0 /1);
+    --color-footer-a-hover: var(--color-blue);
+    --color-text: var(--color-white85);
+
+    /* Light mode */
+    /* 
+    --color-body-bg: rgb(245 245 238 / 1);
+    --color-a: rgb(0 0 0 / 1);
+    --color-a-hover: var(--color-blue);
+    --color-siteheader-a: var(--color-black);
+    --color-siteheader-a-hover: var(--color-blue);
     --color-footer-bg: rgb(0 0 0 /1);
     --color-footer-text: rgb(255 255 255 /.8);
-    --color-footer-headings: rgb(255 255 255 /.8);
     --color-footer-a: rgb(255 255 255 /1);
+    --color-footer-a-hover: var(--color-yellow);
+    --color-text: var(--color-black);
+     */
 
-   
+    --color-siteheader-bg: transparent;
 
+    /* --color-text-headings-onlight: var(--color-black); */
 
 
     /*  DEFINE ALL FONTS USED HERE */
     --font-serif-bold: 'ppeditorial-old-bold', 'Georgia', serif;
+    --font-serif-bolditalic: 'ppeditorial-old-bolditalic', 'Georgia', serif;
     --font-serif-regular: 'ppeditorial-old-regular', 'Georgia', serif;
     --font-serif-regularitalic: 'ppeditorial-old-italic', 'Georgia', serif;
     --font-serif-thin: 'ppeditorial-old-thin', 'Georgia', serif;
-    --font-serifthinitalic: 'ppeditorial-old-thinitalic', 'Georgia', serif;
+    --font-serif-thinitalic: 'ppeditorial-old-thinitalic', 'Georgia', serif;
     --font-body: "Karla", system-ui, "Helvetica", "Arial";
 
     /* SIZING UNITS */
     /* --container-width: 1200px; */
-    --container-width: 70vw;
+    --container-width: 80vw;
     --unit-small: 1em;
     --unit-medium: 2em;
     --unit-large: 4em;
@@ -170,24 +176,24 @@ body {
     background-color: var(--color-body-bg);
 
     /* SET THE COLOR OF THE MAIN BODY TEXT */
-    color: var(--color-black);
+    color: var(--color-text);
 }
 
 h1, h2, h3 {
 
     /* SET THE COLOR OF ALL HEADINGS H1-etc */
-    color: var(--color-black);
+    color: var(--color-text);
 }
 
 a {
     /* SET THE COLOR OF ALL TEXT LINKS */
-    color: var(--color-a-ondark);
+    color: var(--color-a);
     text-decoration: none;
     font-weight: 450;
 
     /* SET THE COLOR OF ALL HOVER STATES ON TEXT LINKS */
     &:hover {
-        color: var(--color-a-ondark-hover);
+        color: var(--color-a-hover);
     }
 }
 
@@ -300,7 +306,15 @@ img, video {
     text-align: right;
 }
 
+/* QUESTION: why is this padding not working? */
+@media (max-width: 767px) {
 
+    .with-padding-top {
+        border: 2px solid red;
+        padding-top: 4em;
+    }
+    
+}
 
 /* ------------------- */
 /* -----  LAYOUT ----- */
@@ -317,7 +331,7 @@ body {
 /* MEDIUM SCREENS ( Tablets < 1200px ) */
 @media (min-width: 768px) {
     body {
-        /* Set the medium screens and highr font size to 16px */
+        /* Set the medium screens and higher font size to 16px */
         font-size: 100%; 
     }
 }
@@ -326,8 +340,9 @@ body {
 
 @media (min-width: 1200px) {
     body {
-        /* Set the medium screens and highr font size to 16px */
-        font-size: 112.5%; 
+        /* Set the medium screens and higher font size to 16px */
+        /* font-size: 112.5%;  */
+        font-size: 100%; 
     }
 }
 
@@ -434,7 +449,8 @@ body {
     } */
 
     /* ADD SOME GENERAL SPACING AROUND THE HEADER */
-    padding: var(--unit-medium);
+    /* padding: var(--unit-medium); */
+    padding: var(--unit-small) 0;
 
    /* REMOVE LINK UNDERLINES */
     a {
@@ -474,7 +490,6 @@ body {
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-        
         }
 
         /* MAKE SITE NAV LINKS BIG LIKE BUTTONS */
@@ -667,22 +682,14 @@ section {
 .site-footer {
     background-color: var(--color-footer-bg);
     color: var(--color-footer-text);
-
     height: 60vh;
-    margin-top: -90px;
-    /* background-color: black; */
-    /* color: var(--my-white); */
-    border-top-right-radius: 32px;
-    border-top-left-radius: 32px;
+    margin-top: 90px;
+    /* border-top-right-radius: 32px;
+    border-top-left-radius: 32px; */
+    z-index: -10;
 
-
-    /* .row.footer {
-        margin-bottom: 8em;
-    }
-    */
-
-    .social-links {
-        letter-spacing: 2px;
+    .social-links a:hover {
+        font-family: var(--font-serif-thinitalic);
     } 
 
     /* ADD SOME GENERAL PADDING AROUND THE FOOTER */
@@ -713,7 +720,7 @@ section {
         color: var(--color-footer-a);
         
         &:hover {
-            color: var(--color-yellow);
+            color: var(--color-footer-a-hover);
         }
     }
 
@@ -753,7 +760,7 @@ section {
     background-color: var(--color-body-bg);
     border: 2px solid var(--color-white);
     border-radius: 4px;
-    color: var(--color-a-ondark);
+    color: var(--color-a);
 
     /* ENABLE BOX MODEL STYLING */
     display: inline-block;
@@ -768,7 +775,7 @@ section {
     }
 
     &:hover {
-        color: var(--color-yellow);
+        color: var(--color-a-hover);
         background-color: var(--color-blue);
         border-color: var(--color-blue);
 
@@ -806,7 +813,7 @@ html {
     transition-delay: 3s;
 } */
 
-.observe-me {
+.observe-me.fade-in {
     opacity: 0;
     transition: all .75s ease-out 0.5s;
 
@@ -880,7 +887,7 @@ html {
 .frame .row,
 .frame-alt .row {
     margin: 0;
-    padding: 0;
+    padding: 0 0 5svh 0;
 }
 
 .frame .row .one-half {
@@ -898,13 +905,19 @@ html {
 }
 
 .hero-home .frame h2 {
-    /* border: 2px solid red; */
+    color: var(--color-black);
     margin: 0;
     padding: 0;
-    font-size: 8vw;
+    font-size: 6.5vw;
     line-height: 1;
     text-transform: uppercase;
     font-feature-settings: "dlig" 1;
+}
+
+.hero-home .frame h2 span {
+    text-transform: none;
+    font-weight: normal;
+    font-family: var(--font-serif-bolditalic);
 }
 
 .hero-home .frame p {
@@ -916,15 +929,8 @@ html {
     /* margin-top: 0.9vw; */
 }
 
-.hero-home .frame p span {
-    font-weight: 400;
-    /* font-family: var(--font-serif-regularitalic);
-    font-feature-settings: "dlig" 1;
-    font-size: 1.25vw; */
-}
-
 .hero-home .frame a {
-    color: var(--color-a-onlight);
+    color: var(--color-a);
 
     &:hover {
         color: var(--color-blue);
@@ -1030,6 +1036,8 @@ html {
     font-feature-settings: "dlig" 1;
     text-align: center;
     font-size: 6em;
+    margin: 10vw auto;
+    padding: 10vw auto;
 }
 
 #sandboxes h2 {
@@ -1077,7 +1085,6 @@ html {
 
 
 .card {
-    /* border: 1px solid blue; */
     border-radius: 5%;
     filter: brightness(.9);
     overflow: hidden;
@@ -1138,10 +1145,10 @@ html {
 }
 
 #about a {
-    color: var(--color-a-ondark);
+    color: var(--color-a);
 
     &:hover {
-        color: var(--color-a-ondark-hover);
+        color: var(--color-a-hover);
     }
 }
 
@@ -1160,11 +1167,22 @@ html {
 
 /* CUSTOM STYLING FOR SUBPAGES */
 .casestudy {
+    background-color: var(--color-body-bg);
+    padding-top: calc(var(--unit-small) / 2);
     padding-bottom: 50svh;
+
+    /* QUESTION: how can I add filter background drop to hero? */
+    /* background-color: transparent; */
+    /* -webkit-backdrop-filter: blur(5px); */
+    /* backdrop-filter: blur(5px); */
 }
 
 .casestudy .row {
-    margin: calc(var(--unit-large) * 2) 0;
+    margin: calc(var(--unit-large) / 2) 0 calc(var(--unit-large) * 2) 0;
+}
+
+.casestudy .container:has(.video-wrapper) {
+    margin: calc(var(--unit-large) * 4) auto;
 }
 
 .casestudy .frame {
@@ -1172,15 +1190,8 @@ html {
     padding: 3svh;
 }
 
-.hero-sub {
-    margin: 0;
-    padding: 0;
-    min-height: 90svh;
-}
-
 /* Refactor: Organize the unnecessary class names */
-.title-subpage {
-    /* width: 100%; */
+.h2-wrapper {
     height: 15vh;
     display: flex;
     justify-content: center;
@@ -1189,11 +1200,11 @@ html {
     margin: var(--unit-medium);
     text-align: center;
     color: var(--my-black);
-    /* animation-name: fadein-up;
-    animation-duration: 2s; */
+    animation-name: fadein-up;
+    animation-duration: 2s;
 }
 
-.title-subpage h2 {
+.hero-sub h2 {
     text-transform: uppercase;
     font-family: var(--font-serif-bold);
     font-weight: normal;
@@ -1202,19 +1213,11 @@ html {
 }
 
 @media ( max-width: 767px ) {
-    .title-subpage {
+    .h2-wrapper {
         width: 100%;
         height: 85vh;
         padding: 24em 4em;
     }
-}
-
-.casestudy {
-    /* QUESTION: how can I add filter background drop to hero? */
-    /* background-color: transparent; */
-    background-color: var(--color-body-bg);
-    /* -webkit-backdrop-filter: blur(5px); */
-    /* backdrop-filter: blur(5px); */
 }
 
 .casestudy h2, h5 {
@@ -1228,6 +1231,14 @@ html {
 
 .casestudy h3 {
     font-family: var(--font-serif-regularitalic);
+}
+
+.casestudy h4 {
+    font-size: 1em;
+    margin: 0;
+
+    /* baseline with h2(2em) */
+    padding: 1em 0 0 0;
 }
 
 .container-img {
@@ -1276,6 +1287,22 @@ figure {
     /* margin: 2em 0; */
     border-radius: 8px;
     max-width: 100%;
+    margin: .5em 0;
+}
+
+.hero-sub {
+    margin: 0;
+    padding: 0;
+    min-height: 100svh;
+}
+
+
+/* ANIMATION FOR HERO */
+.site-main:has(.casestudy.observe-me[data-viewstate = 'active']) .fixed-hero {
+    /* border: 2px solid green; */
+    top: 0;
+    background-size: 105%;
+    rotate: 1deg;
 }
 
 .fixed-hero {
@@ -1287,13 +1314,21 @@ figure {
     background-size: 100%;
     background-position: center;
 
-/* This won't work on safari: refactor to position-fixed */
+    transition: all .5s ease-out;
+
+    /* This won't work on safari: refactor to position-fixed */
     /* background-attachment: fixed; */
     position: fixed;
+
     /* refactor:use intersection observer and onscroll scale*/
-    /* top: 0; */
+    top: 30vh;
+    /* bottom: 0; */
     /* left: 0;
     bottom: 0; */ 
+
+    /* position: sticky; */
+    /* top: 0; */
+    /* bottom: 0; */
 
     z-index: -1;
 }

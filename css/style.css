@@ -237,7 +237,7 @@ h4 {
     font-size: 1.25em;
     line-height: 1.2;
     font-family: var(--font-body);
-    font-weight: 400;
+    font-weight: 600;
     text-transform: uppercase;
 }
 
@@ -248,7 +248,7 @@ dt {
 
 p {
     /* LIMIT THE WIDTH OF ALL PARAGRAPHS */
-    max-width: 65ch;
+    max-width: 66ch;
 
     /* NEW SCHOOL WIDOW SLAYER */
     text-wrap: pretty;
@@ -1025,11 +1025,6 @@ html {
     }
 }
 
-#sandboxes,
-#about {
-    /* min-height: 100svh; */
-}
-
 #sandboxes h2,
 #about h2 {
     /* text-transform: uppercase; */
@@ -1136,7 +1131,7 @@ html {
 }
 
 #about h4 {
-    font-weight: 500;
+    font-weight: 600;
     margin: 0;
 }
 

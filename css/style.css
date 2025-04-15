@@ -663,8 +663,9 @@ body {
 
 /* SITE MAIN */
 .site-main {
-    /* border: 2px solid red; */
-    /* padding-bottom: 16em; */
+    background-color: var(--color-body-bg);
+    position: relative;
+    z-index: 1;
 }
 
 /* SECTIONS */
@@ -694,14 +695,20 @@ section {
 }
 
 /* SITE FOOTER */
+.site-footer.reveal {
+    position: sticky;
+    bottom: 0;
+    z-index: -1;
+}
+
 .site-footer {
     background-color: var(--color-footer-bg);
     color: var(--color-footer-text);
     height: 60vh;
-    margin-top: 90px;
+    /* margin-top: 90px; */
     /* border-top-right-radius: 32px;
     border-top-left-radius: 32px; */
-    z-index: -10;
+    z-index: 10;
 
     .social-links a:hover {
         font-family: var(--font-serif-thinitalic);
@@ -1335,6 +1342,7 @@ figure {
     /* background-size: 105%; */
     scale: 105%;
     rotate: 1deg;
+    /* z-index: -10; */
 }
 
 .fixed-hero {
@@ -1349,7 +1357,6 @@ figure {
     transition: all 1s ease-out;
     position: fixed;
 
-    /* refactor:use intersection observer and onscroll scale*/
     top: 30vh;
     /* bottom: 0; */
     /* left: 0;
@@ -1358,8 +1365,7 @@ figure {
     /* position: sticky; */
     /* top: 0; */
     /* bottom: 0; */
-
-    z-index: -1;
+    z-index: -10;
 }
 
 .fixed-hero-sneilfujita {

@@ -241,9 +241,24 @@ h4 {
     text-transform: uppercase;
 }
 
+dl {
+    /* border: 2px solid red; */
+    margin: 0;
+    padding: 0;
+}
+
 dt {
-    font-family: var(--font-body);
-    font-weight: 600;
+    /* font-family: var(--font-body); */
+    /* font-weight: 600; */
+    font-family: var(--font-serif-regular);
+    font-feature-settings: "dlig" 1;
+}
+
+dd {
+    /* border: 2px solid red; */
+    font-family: var(--font-body); 
+    font-weight: 400;
+    line-height: 1.1;
 }
 
 p {
@@ -1134,12 +1149,32 @@ html {
 }
 
 #about h4 {
+    /* border: 2px solid red; */
     font-weight: 600;
     margin: 0;
+    
+}
+
+#about .textwrapper {
+    margin-bottom: 2em;
 }
 
 #about p {
-    margin: 0;
+    margin: .5em 0 0 0;
+}
+
+#about dl {
+    margin: .5em 0 2.5em 0;
+}
+
+#about dt {
+    margin: .5em 0 0 0; 
+}
+
+#about dd {
+    margin: 0 0 .25em 0; 
+    padding: 0 0 0 .75em;
+    font-weight: 200;   
 }
 
 #about a {
@@ -1198,6 +1233,7 @@ html {
     color: var(--my-black);
     animation-name: fadein-up;
     animation-duration: 2s;
+    mix-blend-mode: difference;
 }
 
 .hero-sub h2 {

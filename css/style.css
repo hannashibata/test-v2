@@ -711,7 +711,7 @@ section {
 }
 
 .site-footer {
-    border: 2px solid blues;
+    border-bottom: 8px solid var(--color-yellow);
     background-color: var(--color-footer-bg);
     color: var(--color-footer-text);
     padding: calc( var(--unit-large) + 5% ) var(--unit-large);
